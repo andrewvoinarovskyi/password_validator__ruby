@@ -1,10 +1,9 @@
 # open and read file
 path = ARGV.first || 'passwords.txt'
 file = File.open(path, 'r')
-textline_passwords = file.read()
 
 # parse line into condition-password pairs
-passwords_with_conditions = textline_passwords.split(/\n/)
+passwords_with_conditions = file.read.split(/\n/)
 condition_password_pair = passwords_with_conditions.map { |line| line.split(/\:\s/) }
 
 # check all rules
@@ -20,3 +19,4 @@ condition_password_pair.each { |pair|
 }
 
 puts result
+return result
