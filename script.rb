@@ -1,12 +1,11 @@
-# open and read file
+# to run this script, move to the current directory and run: 'ruby script.rb "passwords.txt"'
+
 path = ARGV.first || 'passwords.txt'
 file = File.open(path, 'r')
 
-# parse line into condition-password pairs
 passwords_with_conditions = file.read.split(/\n/)
 condition_password_pair = passwords_with_conditions.map { |line| line.split(/\:\s/) }
 
-# check all rules
 result = 0
 
 condition_password_pair.each { |pair|
